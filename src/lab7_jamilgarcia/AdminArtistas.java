@@ -17,21 +17,21 @@ import java.util.ArrayList;
  *
  * @author JamilGarcía
  */
-public class AdminUsuarios {
+public class AdminArtistas {
     
-    private ArrayList <Usuarios> usua = new ArrayList();
+     private ArrayList <Artistas> artista = new ArrayList();
     private File archivo; 
     
-    public AdminUsuarios (String path) {
+    public AdminArtistas (String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<Usuarios> getUsua() {
-        return usua;
+    public ArrayList<Artistas> getArtista() {
+        return artista;
     }
 
-    public void setUsua(ArrayList<Usuarios> usua) {
-        this.usua = usua;
+    public void setArtista(ArrayList<Artistas> artista) {
+        this.artista = artista;
     }
 
     public File getArchivo() {
@@ -44,25 +44,25 @@ public class AdminUsuarios {
 
     @Override
     public String toString() {
-        return "usua: " + usua;
+        return "artista: " + artista;
     }
     
-    public void setUsuario (Usuarios u){
-        this.usua.add(u);
+    public void setArtista (Artistas u){
+        this.artista.add(u);
     }
     
     public void cargarArchivo() {
         try {
-            usua = new ArrayList();
-            Usuarios temp;
+            artista = new ArrayList();
+            Artistas temp;
             if (archivo.exists()){
                 FileInputStream entrada
                         = new FileInputStream (archivo);
                 ObjectInputStream objeto
                         = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Usuarios) objeto.readObject()) != null) {
-                        usua.add(temp);
+                    while ((temp = (Artistas) objeto.readObject()) != null) {
+                        artista.add(temp);
                     }
                 } catch (EOFException e) {
                     //encontro el final del archivo
@@ -81,7 +81,7 @@ public class AdminUsuarios {
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (Usuarios t : usua) {
+            for (Artistas t : artista) {
                 bw.writeObject(t);
             }
             bw.flush();
@@ -94,5 +94,4 @@ public class AdminUsuarios {
             }
         }
     }
-    
 }

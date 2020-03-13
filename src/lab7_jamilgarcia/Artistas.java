@@ -1,8 +1,9 @@
 package lab7_jamilgarcia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Artistas {
+public class Artistas implements Serializable {
     
     private String usuario;
     private String contra; 
@@ -10,6 +11,8 @@ public class Artistas {
     private String gmusical; 
     private ArrayList <Canciones> cn = new ArrayList();
 
+    private static final long SerialVersionUID = 4443L;
+    
     public Artistas() {
     }
 

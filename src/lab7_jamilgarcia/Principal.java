@@ -6,6 +6,7 @@
 package lab7_jamilgarcia;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    
     public Principal() {
         initComponents();
         Login.setVisible(true);
-        
-        
+
     }
 
     /**
@@ -39,6 +38,7 @@ public class Principal extends javax.swing.JFrame {
         tf_login_Contraseña = new javax.swing.JTextField();
         b_login_Login = new javax.swing.JButton();
         b_login_crearCuenta = new javax.swing.JButton();
+        b_login_crearCuentaArtista = new javax.swing.JButton();
         CrearCuenta = new javax.swing.JFrame();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -52,6 +52,46 @@ public class Principal extends javax.swing.JFrame {
         tf_crearCuenta_Nombre = new javax.swing.JTextField();
         Admin = new javax.swing.JFrame();
         jLabel9 = new javax.swing.JLabel();
+        CrearCuentaArtista = new javax.swing.JFrame();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tf_CrearCuentaArtista_Usuario = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tf_CrearCuentaArtista_Contraseña = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        tf_CrearCuentaArtista_Nombre = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        tf_CrearCuentaArtista_Gmusical = new javax.swing.JTextField();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        tf_CrearCuentaArtista_edad = new javax.swing.JFormattedTextField();
+        jLabel13 = new javax.swing.JLabel();
+        b_CrearCuentaArtista_CCSolista = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        sp_CrearCuentaArtista_Integrantes = new javax.swing.JSpinner();
+        b_CrearCuentaArtista_CCBanda = new javax.swing.JButton();
+        ArtistasPrin = new javax.swing.JFrame();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        tf_principalArtistas_NombreCancion = new javax.swing.JTextField();
+        tf_principalArtistas_Duracion = new javax.swing.JTextField();
+        b_principalArtistas_CCancion = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        dc_principalArtistas_Fecha = new com.toedter.calendar.JDateChooser();
+        jLabel22 = new javax.swing.JLabel();
+        tf_principalArtistas_Ciudad = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        tf_principalArtistas_Lugar = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        tf_principalArtistas_Capacidad = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_principalArtistas_Canciones = new javax.swing.JList<>();
+        b_principalArtistas_AgregarC = new javax.swing.JButton();
+        b_principalArtistas_CEvento = new javax.swing.JButton();
 
         Login.setMinimumSize(new java.awt.Dimension(604, 553));
 
@@ -75,21 +115,19 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        b_login_crearCuentaArtista.setText("Crear Cuenta de artista");
+        b_login_crearCuentaArtista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_login_crearCuentaArtistaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login.getContentPane());
         Login.getContentPane().setLayout(LoginLayout);
         LoginLayout.setHorizontalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginLayout.createSequentialGroup()
                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(38, 38, 38)
-                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_login_Usuario)
-                            .addComponent(tf_login_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
                     .addGroup(LoginLayout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addComponent(b_login_Login))
@@ -98,7 +136,19 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(LoginLayout.createSequentialGroup()
                         .addGap(215, 215, 215)
-                        .addComponent(b_login_crearCuenta)))
+                        .addComponent(b_login_crearCuenta))
+                    .addGroup(LoginLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(b_login_crearCuentaArtista)
+                            .addGroup(LoginLayout.createSequentialGroup()
+                                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(38, 38, 38)
+                                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_login_Usuario)
+                                    .addComponent(tf_login_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))))))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
@@ -118,7 +168,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(b_login_Login)
                 .addGap(43, 43, 43)
                 .addComponent(b_login_crearCuenta)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(b_login_crearCuentaArtista)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         CrearCuenta.setMinimumSize(new java.awt.Dimension(446, 406));
@@ -220,6 +272,274 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(252, Short.MAX_VALUE))
         );
 
+        jLabel10.setText("Crear Cuenta");
+
+        jLabel11.setText("Usuario:");
+
+        jLabel12.setText("Contraseña:");
+
+        jLabel14.setText("Nombre:");
+
+        jLabel15.setText("Genero Musical:");
+
+        tf_CrearCuentaArtista_edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##"))));
+
+        jLabel13.setText("Edad:");
+
+        b_CrearCuentaArtista_CCSolista.setText("Crear Cuenta");
+        b_CrearCuentaArtista_CCSolista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_CrearCuentaArtista_CCSolistaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b_CrearCuentaArtista_CCSolista)
+                    .addComponent(tf_CrearCuentaArtista_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(253, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_CrearCuentaArtista_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(b_CrearCuentaArtista_CCSolista)
+                .addGap(42, 42, 42))
+        );
+
+        jTabbedPane1.addTab("Solista", jPanel1);
+
+        jLabel16.setText("Numero de integrantes");
+
+        b_CrearCuentaArtista_CCBanda.setText("Crear Cuenta");
+        b_CrearCuentaArtista_CCBanda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_CrearCuentaArtista_CCBandaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16)
+                        .addGap(40, 40, 40)
+                        .addComponent(sp_CrearCuentaArtista_Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(b_CrearCuentaArtista_CCBanda)))
+                .addContainerGap(248, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(sp_CrearCuentaArtista_Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(b_CrearCuentaArtista_CCBanda)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Banda", jPanel2);
+
+        javax.swing.GroupLayout CrearCuentaArtistaLayout = new javax.swing.GroupLayout(CrearCuentaArtista.getContentPane());
+        CrearCuentaArtista.getContentPane().setLayout(CrearCuentaArtistaLayout);
+        CrearCuentaArtistaLayout.setHorizontalGroup(
+            CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CrearCuentaArtistaLayout.createSequentialGroup()
+                .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel10))
+                    .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(tf_CrearCuentaArtista_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                                    .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                                            .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel12)
+                                                .addComponent(jLabel14))
+                                            .addGap(34, 34, 34))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CrearCuentaArtistaLayout.createSequentialGroup()
+                                            .addComponent(jLabel15)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                    .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tf_CrearCuentaArtista_Contraseña)
+                                        .addComponent(tf_CrearCuentaArtista_Nombre)
+                                        .addComponent(tf_CrearCuentaArtista_Gmusical))))
+                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+        CrearCuentaArtistaLayout.setVerticalGroup(
+            CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CrearCuentaArtistaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel10)
+                .addGap(31, 31, 31)
+                .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_CrearCuentaArtista_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_CrearCuentaArtista_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_CrearCuentaArtista_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(39, 39, 39)
+                .addGroup(CrearCuentaArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_CrearCuentaArtista_Gmusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jLabel17.setText("Crear Cancion");
+
+        jLabel18.setText("Nombre de la Cancion:");
+
+        jLabel19.setText("Duracion:");
+
+        b_principalArtistas_CCancion.setText("Crear");
+        b_principalArtistas_CCancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_principalArtistas_CCancionMouseClicked(evt);
+            }
+        });
+
+        jLabel20.setText("Crear Evento:");
+
+        jLabel21.setText("Fecha:");
+
+        jLabel22.setText("Ciudad:");
+
+        jLabel23.setText("Lugar:");
+
+        jLabel24.setText("Capacidad:");
+
+        jLabel25.setText("Agregar Canciones:");
+
+        jl_principalArtistas_Canciones.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_principalArtistas_Canciones);
+
+        b_principalArtistas_AgregarC.setText("Agregar Cancion");
+
+        b_principalArtistas_CEvento.setText("Crear Evento");
+
+        javax.swing.GroupLayout ArtistasPrinLayout = new javax.swing.GroupLayout(ArtistasPrin.getContentPane());
+        ArtistasPrin.getContentPane().setLayout(ArtistasPrinLayout);
+        ArtistasPrinLayout.setHorizontalGroup(
+            ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_principalArtistas_Duracion, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(tf_principalArtistas_NombreCancion)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17)))
+                    .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(b_principalArtistas_CCancion)))
+                .addGap(197, 197, 197)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tf_principalArtistas_Capacidad)
+                        .addComponent(jLabel24)
+                        .addComponent(tf_principalArtistas_Lugar)
+                        .addComponent(jLabel23)
+                        .addComponent(jLabel20)
+                        .addComponent(jLabel21)
+                        .addComponent(dc_principalArtistas_Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                        .addComponent(jLabel22)
+                        .addComponent(tf_principalArtistas_Ciudad))
+                    .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(b_principalArtistas_AgregarC)))
+                .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArtistasPrinLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(b_principalArtistas_CEvento)
+                .addGap(372, 372, 372))
+        );
+        ArtistasPrinLayout.setVerticalGroup(
+            ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                        .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel20))
+                        .addGap(31, 31, 31)
+                        .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel21))
+                        .addGap(20, 20, 20)
+                        .addComponent(tf_principalArtistas_NombreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dc_principalArtistas_Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel22))
+                .addGap(18, 18, 18)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_principalArtistas_Duracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_principalArtistas_Ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b_principalArtistas_CCancion)
+                    .addComponent(jLabel23))
+                .addGap(18, 18, 18)
+                .addComponent(tf_principalArtistas_Lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel24)
+                .addGap(18, 18, 18)
+                .addComponent(tf_principalArtistas_Capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel25)
+                .addGroup(ArtistasPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArtistasPrinLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(b_principalArtistas_AgregarC)
+                        .addGap(130, 130, 130))
+                    .addGroup(ArtistasPrinLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(b_principalArtistas_CEvento)
+                        .addGap(34, 34, 34))))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -239,14 +559,14 @@ public class Principal extends javax.swing.JFrame {
     private void b_login_crearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_login_crearCuentaMouseClicked
         // TODO add your handling code here:
         CrearCuenta.setVisible(true);
-        
+
     }//GEN-LAST:event_b_login_crearCuentaMouseClicked
 
     private void b_crearCuenta_CrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_crearCuenta_CrearCuentaMouseClicked
         // TODO add your handling code here:
-        Usuarios usuario = new Usuarios(tf_crearCuenta_usuario.getText(), 
-                tf_crearCuenta_contraseña.getText(), 
-                tf_crearCuenta_Nombre.getText(), 
+        Usuarios usuario = new Usuarios(tf_crearCuenta_usuario.getText(),
+                tf_crearCuenta_contraseña.getText(),
+                tf_crearCuenta_Nombre.getText(),
                 Integer.parseInt(tf_crearCuenta_edad.getText()));
         AdminUsuarios adUs = new AdminUsuarios("./usuarios.jg");
         adUs.cargarArchivo();
@@ -263,22 +583,77 @@ public class Principal extends javax.swing.JFrame {
     private void b_login_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_login_LoginMouseClicked
         // TODO add your handling code here:
         AdminUsuarios adUs = new AdminUsuarios("./usuarios.jg");
+        AdminArtistas adAr = new AdminArtistas("./Artistas.jg");
         adUs.cargarArchivo();
-        ArrayList <Usuarios> Lusu = new ArrayList();
+        adAr.cargarArchivo();
+        ArrayList<Usuarios> Lusu = new ArrayList();
+        ArrayList<Artistas> Lart = new ArrayList();
         Lusu = adUs.getUsua();
-        for (int i = 0; i < Lusu.size(); i++) {
-            if (tf_login_Usuario.getText().equals("leobanegas")){
-                if (tf_login_Contraseña.getText().equals("99")) {
-                    Admin.setVisible(true);
-                    Login.setVisible(false);
-                }
-            } else if (tf_login_Usuario.getText().equals(Lusu.get(i).getUsuario())){
-                if (tf_login_Contraseña.getText().equals(Lusu.get(i).getContraseña())){
-                    new Principal().setVisible(true);
+        Lart = adAr.getArtista();
+        if (tf_login_Usuario.getText().equals("leobanegas")) {
+            if (tf_login_Contraseña.getText().equals("99")) {
+                Admin.setVisible(true);
+                Login.setVisible(false);
+            }
+        } else {
+            for (int i = 0; i < Lusu.size(); i++) {
+                if (tf_login_Usuario.getText().equals(Lusu.get(i).getUsuario())) {
+                    if (tf_login_Contraseña.getText().equals(Lusu.get(i).getContraseña())) {
+                        new Principal().setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+                    }
+                } else {
+                    for (int j = 0; j < Lart.size(); j++) {
+                        if (tf_login_Usuario.getText().equals(Lart.get(i).getUsuario())) {
+                            if (tf_login_Contraseña.getText().equals(Lart.get(i).getContra())) {
+                                ArtistasPrin.setVisible(true);
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+                            }
+                        }
+                    }
                 }
             }
         }
+
+
     }//GEN-LAST:event_b_login_LoginMouseClicked
+
+    private void b_login_crearCuentaArtistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_login_crearCuentaArtistaMouseClicked
+        // TODO add your handling code here:
+        CrearCuentaArtista.setVisible(true);
+    }//GEN-LAST:event_b_login_crearCuentaArtistaMouseClicked
+
+    private void b_CrearCuentaArtista_CCSolistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_CrearCuentaArtista_CCSolistaMouseClicked
+        // TODO add your handling code here:
+        Solistas solista = new Solistas(Integer.parseInt(tf_CrearCuentaArtista_edad.getText()), tf_CrearCuentaArtista_Usuario.getText(), tf_CrearCuentaArtista_Contraseña.getText(), tf_CrearCuentaArtista_Nombre.getText(), tf_CrearCuentaArtista_Gmusical.getText());
+        AdminArtistas adAr = new AdminArtistas("./Artistas.jg");
+        adAr.cargarArchivo();
+        adAr.setArtista(solista);
+        adAr.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Guardado con exito");
+        CrearCuentaArtista.setVisible(false);
+    }//GEN-LAST:event_b_CrearCuentaArtista_CCSolistaMouseClicked
+
+    private void b_CrearCuentaArtista_CCBandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_CrearCuentaArtista_CCBandaMouseClicked
+        // TODO add your handling code here:
+        Solistas solista = new Solistas(Integer.parseInt(tf_CrearCuentaArtista_edad.getText()), tf_CrearCuentaArtista_Usuario.getText(), tf_CrearCuentaArtista_Contraseña.getText(), tf_CrearCuentaArtista_Nombre.getText(), tf_CrearCuentaArtista_Gmusical.getText());
+        AdminArtistas adAr = new AdminArtistas("./Artistas.jg");
+        adAr.cargarArchivo();
+        adAr.setArtista(solista);
+        adAr.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Guardado con exito");
+        CrearCuentaArtista.setVisible(false);
+    }//GEN-LAST:event_b_CrearCuentaArtista_CCBandaMouseClicked
+
+    private void b_principalArtistas_CCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_principalArtistas_CCancionMouseClicked
+        // TODO add your handling code here:
+        Canciones cancion = new Canciones(tf_principalArtistas_NombreCancion.getText(), Integer.parseInt(tf_principalArtistas_Duracion.getText()));
+        canciones.add(cancion);
+        DefaultListModel modelolista = (DefaultListModel) jl_principalArtistas_Canciones.getModel();
+        modelolista.addElement(canciones);
+    }//GEN-LAST:event_b_principalArtistas_CCancionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -317,13 +692,38 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame Admin;
+    private javax.swing.JFrame ArtistasPrin;
     private javax.swing.JFrame CrearCuenta;
+    private javax.swing.JFrame CrearCuentaArtista;
     private javax.swing.JFrame Login;
+    private javax.swing.JButton b_CrearCuentaArtista_CCBanda;
+    private javax.swing.JButton b_CrearCuentaArtista_CCSolista;
     private javax.swing.JButton b_crearCuenta_CrearCuenta;
     private javax.swing.JButton b_login_Login;
     private javax.swing.JButton b_login_crearCuenta;
+    private javax.swing.JButton b_login_crearCuentaArtista;
+    private javax.swing.JButton b_principalArtistas_AgregarC;
+    private javax.swing.JButton b_principalArtistas_CCancion;
+    private javax.swing.JButton b_principalArtistas_CEvento;
+    private com.toedter.calendar.JDateChooser dc_principalArtistas_Fecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -331,11 +731,30 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JList<String> jl_principalArtistas_Canciones;
+    private javax.swing.JSpinner sp_CrearCuentaArtista_Integrantes;
+    private javax.swing.JTextField tf_CrearCuentaArtista_Contraseña;
+    private javax.swing.JTextField tf_CrearCuentaArtista_Gmusical;
+    private javax.swing.JTextField tf_CrearCuentaArtista_Nombre;
+    private javax.swing.JTextField tf_CrearCuentaArtista_Usuario;
+    private javax.swing.JFormattedTextField tf_CrearCuentaArtista_edad;
     private javax.swing.JTextField tf_crearCuenta_Nombre;
     private javax.swing.JTextField tf_crearCuenta_contraseña;
     private javax.swing.JFormattedTextField tf_crearCuenta_edad;
     private javax.swing.JTextField tf_crearCuenta_usuario;
     private javax.swing.JTextField tf_login_Contraseña;
     private javax.swing.JTextField tf_login_Usuario;
+    private javax.swing.JTextField tf_principalArtistas_Capacidad;
+    private javax.swing.JTextField tf_principalArtistas_Ciudad;
+    private javax.swing.JTextField tf_principalArtistas_Duracion;
+    private javax.swing.JTextField tf_principalArtistas_Lugar;
+    private javax.swing.JTextField tf_principalArtistas_NombreCancion;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList<Canciones> canciones = new ArrayList();
+    
 }

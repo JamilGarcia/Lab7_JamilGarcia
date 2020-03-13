@@ -5,13 +5,14 @@
  */
 package lab7_jamilgarcia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author JamilGarcía
  */
-public class Usuarios {
+public class Usuarios implements Serializable{
     
     private String usuario; 
     private String Contraseña; 
@@ -20,8 +21,7 @@ public class Usuarios {
     private ArrayList <Eventos> evn = new ArrayList();
     private ArrayList <Artistas> art = new ArrayList();
 
-    public Usuarios() {
-    }
+    private static final long SerialVersionUID = 4444L;
 
     public Usuarios(String usuario, String Contraseña, String nombreU, int edadU) {
         this.usuario = usuario;
@@ -80,7 +80,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "usuario=" + usuario + ", Contrase\u00f1a=" + Contraseña + ", nombreU=" + nombreU + ", edadU=" + edadU + ", evn=" + evn + ", art=" + art + '}';
+        return usuario;
     }
     
     
