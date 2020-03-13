@@ -18,17 +18,19 @@ public class Eventos {
     private String ciudad; 
     private String lugar; 
     private int capacidadP; 
-    private ArrayList <Canciones> setlist = new ArrayList();
+    private ArrayList <Canciones> setlist;
 
     public Eventos() {
     }
 
-    public Eventos(Date fecha, String ciudad, String lugar, int capacidadP) {
+    public Eventos(Date fecha, String ciudad, String lugar, int capacidadP, ArrayList<Canciones> setlist) {
         this.fecha = fecha;
         this.ciudad = ciudad;
         this.lugar = lugar;
         this.capacidadP = capacidadP;
+        this.setlist = setlist;
     }
+    
 
     public Date getFecha() {
         return fecha;

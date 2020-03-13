@@ -732,11 +732,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Cancion"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="b_principalArtistas_AgregarCMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b_principalArtistas_CEvento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Crear Evento"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="b_principalArtistas_CEventoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

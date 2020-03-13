@@ -448,8 +448,18 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_principalArtistas_Canciones);
 
         b_principalArtistas_AgregarC.setText("Agregar Cancion");
+        b_principalArtistas_AgregarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_principalArtistas_AgregarCMouseClicked(evt);
+            }
+        });
 
         b_principalArtistas_CEvento.setText("Crear Evento");
+        b_principalArtistas_CEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_principalArtistas_CEventoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout ArtistasPrinLayout = new javax.swing.GroupLayout(ArtistasPrin.getContentPane());
         ArtistasPrin.getContentPane().setLayout(ArtistasPrinLayout);
@@ -582,6 +592,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void b_login_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_login_LoginMouseClicked
         // TODO add your handling code here:
+        int mayor;
         AdminUsuarios adUs = new AdminUsuarios("./usuarios.jg");
         AdminArtistas adAr = new AdminArtistas("./Artistas.jg");
         adUs.cargarArchivo();
@@ -590,34 +601,41 @@ public class Principal extends javax.swing.JFrame {
         ArrayList<Artistas> Lart = new ArrayList();
         Lusu = adUs.getUsua();
         Lart = adAr.getArtista();
+        if (Lusu.size() < Lart.size()) {
+            mayor = Lart.size();
+        } else {
+            mayor = Lusu.size();
+        }
         if (tf_login_Usuario.getText().equals("leobanegas")) {
             if (tf_login_Contraseña.getText().equals("99")) {
                 Admin.setVisible(true);
                 Login.setVisible(false);
             }
         } else {
-            for (int i = 0; i < Lusu.size(); i++) {
-                if (tf_login_Usuario.getText().equals(Lusu.get(i).getUsuario())) {
-                    if (tf_login_Contraseña.getText().equals(Lusu.get(i).getContraseña())) {
-                        new Principal().setVisible(true);
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+            System.out.println("entra 3");
+            for (int i = 0; i < mayor; i++) {
+                System.out.println("entra");
+                if (Lusu.size() > mayor) {
+                    if (tf_login_Usuario.getText().equals(Lusu.get(i).getUsuario())) {
+                        if (tf_login_Contraseña.getText().equals(Lusu.get(i).getContraseña())) {
+                            new Principal().setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+                        }
                     }
                 } else {
-                    for (int j = 0; j < Lart.size(); j++) {
-                        if (tf_login_Usuario.getText().equals(Lart.get(i).getUsuario())) {
-                            if (tf_login_Contraseña.getText().equals(Lart.get(i).getContra())) {
-                                ArtistasPrin.setVisible(true);
-                            } else {
-                                JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
-                            }
+                    System.out.println("Entra 4");
+                    if (tf_login_Usuario.getText().equals(Lart.get(i).getUsuario())) {
+                        System.out.println("entra2");
+                        if (tf_login_Contraseña.getText().equals(Lart.get(i).getContra())) {
+                            ArtistasPrin.setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
                         }
                     }
                 }
             }
         }
-
-
     }//GEN-LAST:event_b_login_LoginMouseClicked
 
     private void b_login_crearCuentaArtistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_login_crearCuentaArtistaMouseClicked
@@ -652,8 +670,28 @@ public class Principal extends javax.swing.JFrame {
         Canciones cancion = new Canciones(tf_principalArtistas_NombreCancion.getText(), Integer.parseInt(tf_principalArtistas_Duracion.getText()));
         canciones.add(cancion);
         DefaultListModel modelolista = (DefaultListModel) jl_principalArtistas_Canciones.getModel();
-        modelolista.addElement(canciones);
+        modelolista.addElement(cancion);
     }//GEN-LAST:event_b_principalArtistas_CCancionMouseClicked
+
+    private void b_principalArtistas_AgregarCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_principalArtistas_AgregarCMouseClicked
+        // TODO add your handling code here:
+        cEvento = new ArrayList();
+        System.out.println(jl_principalArtistas_Canciones.getSelectedIndex());
+        cEvento.add(canciones.get(jl_principalArtistas_Canciones.getSelectedIndex()));
+        
+        Eventos eve = new Eventos(dc_principalArtistas_Fecha.getDate(), tf_principalArtistas_Ciudad.getText(), tf_principalArtistas_Lugar.getText(), Integer.parseInt(tf_principalArtistas_Capacidad.getText()), cEvento);
+        JOptionPane.showMessageDialog(this, "Agregada COn exito, agregue otra se lo desea");
+    }//GEN-LAST:event_b_principalArtistas_AgregarCMouseClicked
+
+    private void b_principalArtistas_CEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_principalArtistas_CEventoMouseClicked
+        
+        cEvento.add(canciones.get(jl_principalArtistas_Canciones.getSelectedIndex()));
+        Eventos eve = new Eventos(dc_principalArtistas_Fecha.getDate(), tf_principalArtistas_Ciudad.getText(), tf_principalArtistas_Lugar.getText(), Integer.parseInt(tf_principalArtistas_Capacidad.getText()), cEvento);
+        JOptionPane.showMessageDialog(this, "Agregado COn exito"); 
+        eventos.add(eve);
+        System.out.println(eve);
+        
+    }//GEN-LAST:event_b_principalArtistas_CEventoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -669,16 +707,24 @@ public class Principal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -756,5 +802,8 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     ArrayList<Canciones> canciones = new ArrayList();
+    ArrayList<Canciones> cEvento = new ArrayList();
+    ArrayList<Eventos> eventos = new ArrayList();
     
+
 }

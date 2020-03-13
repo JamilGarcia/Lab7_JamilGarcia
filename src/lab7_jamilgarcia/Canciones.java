@@ -40,7 +40,7 @@ public class Canciones {
 
     @Override
     public String toString() {
-        return "Canciones{" + "nombreC=" + nombreC + ", tiemDura=" + tiemDura + '}';
+        return  nombreC +  " "  + tiemDura + 's';
     }
     
 }
