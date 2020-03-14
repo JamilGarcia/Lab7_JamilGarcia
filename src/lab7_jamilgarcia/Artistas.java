@@ -9,7 +9,7 @@ public class Artistas implements Serializable {
     private String contra; 
     private String nombre;
     private String gmusical; 
-    private ArrayList <Canciones> cn = new ArrayList();
+    private ArrayList <Canciones> cn;
 
     private static final long SerialVersionUID = 4443L;
     

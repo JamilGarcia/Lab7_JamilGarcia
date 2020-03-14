@@ -18,6 +18,9 @@ public class Accion extends Thread {
     private boolean avanzar;
     private boolean vive;
 
+    public Accion() {
+    }
+
     public Accion( int tiempoE, JProgressBar barra) {
         this.tiempoE = tiempoE;
         this.barra = barra;

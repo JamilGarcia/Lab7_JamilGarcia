@@ -6,8 +6,10 @@
 package lab7_jamilgarcia;
 
 import java.util.ArrayList;
+import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -50,8 +52,12 @@ public class Principal extends javax.swing.JFrame {
         b_crearCuenta_CrearCuenta = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         tf_crearCuenta_Nombre = new javax.swing.JTextField();
+        progressCC = new javax.swing.JProgressBar();
         Admin = new javax.swing.JFrame();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton3 = new javax.swing.JButton();
         CrearCuentaArtista = new javax.swing.JFrame();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -92,6 +98,18 @@ public class Principal extends javax.swing.JFrame {
         jl_principalArtistas_Canciones = new javax.swing.JList<>();
         b_principalArtistas_AgregarC = new javax.swing.JButton();
         b_principalArtistas_CEvento = new javax.swing.JButton();
+        Concierto = new javax.swing.JFrame();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_conciertos_eventos = new javax.swing.JList<>();
+        b_concierto_simular = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_prin_Canciones = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla_prin_Artistas = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        b_prin_cargar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         Login.setMinimumSize(new java.awt.Dimension(604, 553));
 
@@ -222,8 +240,11 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(CrearCuentaLayout.createSequentialGroup()
                         .addGap(159, 159, 159)
-                        .addComponent(b_crearCuenta_CrearCuenta)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                        .addComponent(b_crearCuenta_CrearCuenta))
+                    .addGroup(CrearCuentaLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(progressCC, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         CrearCuentaLayout.setVerticalGroup(
             CrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,29 +269,55 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(tf_crearCuenta_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(b_crearCuenta_CrearCuenta)
-                .addGap(63, 63, 63))
+                .addGap(18, 18, 18)
+                .addComponent(progressCC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         Admin.setMinimumSize(new java.awt.Dimension(400, 300));
 
         jLabel9.setText("Funciona");
 
+        jList1.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jList1);
+
+        jButton3.setText("Cargar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout AdminLayout = new javax.swing.GroupLayout(Admin.getContentPane());
         Admin.getContentPane().setLayout(AdminLayout);
         AdminLayout.setHorizontalGroup(
             AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel9)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addGroup(AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel9))
+                    .addGroup(AdminLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jButton3)))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
         AdminLayout.setVerticalGroup(
             AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel9)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton3)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
+
+        CrearCuentaArtista.setMinimumSize(new java.awt.Dimension(805, 545));
 
         jLabel10.setText("Crear Cuenta");
 
@@ -419,6 +466,8 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
+        ArtistasPrin.setMinimumSize(new java.awt.Dimension(970, 662));
+
         jLabel17.setText("Crear Cancion");
 
         jLabel18.setText("Nombre de la Cancion:");
@@ -550,17 +599,136 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(34, 34, 34))))
         );
 
+        Concierto.setMinimumSize(new java.awt.Dimension(1087, 736));
+
+        jl_conciertos_eventos.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jl_conciertos_eventos);
+
+        b_concierto_simular.setText("Simular");
+        b_concierto_simular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_concierto_simularMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ConciertoLayout = new javax.swing.GroupLayout(Concierto.getContentPane());
+        Concierto.getContentPane().setLayout(ConciertoLayout);
+        ConciertoLayout.setHorizontalGroup(
+            ConciertoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConciertoLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(b_concierto_simular)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ConciertoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
+        );
+        ConciertoLayout.setVerticalGroup(
+            ConciertoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConciertoLayout.createSequentialGroup()
+                .addGroup(ConciertoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConciertoLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ConciertoLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(b_concierto_simular)
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(946, 730));
+
+        jl_prin_Canciones.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jl_prin_Canciones);
+
+        tabla_prin_Artistas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tipo", "Nombre", "Genero"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabla_prin_Artistas);
+        if (tabla_prin_Artistas.getColumnModel().getColumnCount() > 0) {
+            tabla_prin_Artistas.getColumnModel().getColumn(0).setResizable(false);
+            tabla_prin_Artistas.getColumnModel().getColumn(1).setResizable(false);
+            tabla_prin_Artistas.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        jButton1.setText("Seguir Artista");
+
+        b_prin_cargar.setText("Cargar");
+        b_prin_cargar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_prin_cargarMouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Ir Concierto");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 946, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(204, 204, 204)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(b_prin_cargar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(b_prin_cargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(93, 93, 93)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -574,6 +742,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void b_crearCuenta_CrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_crearCuenta_CrearCuentaMouseClicked
         // TODO add your handling code here:
+
+        Accion accion = new Accion();
+        boolean t = accion.isVive();
+        progressCC.setMaximum(5);
         Usuarios usuario = new Usuarios(tf_crearCuenta_usuario.getText(),
                 tf_crearCuenta_contraseña.getText(),
                 tf_crearCuenta_Nombre.getText(),
@@ -582,6 +754,13 @@ public class Principal extends javax.swing.JFrame {
         adUs.cargarArchivo();
         adUs.setUsuario(usuario);
         adUs.escribirArchivo();
+        while (t == true) {
+            accion.setBarra(progressCC);
+            accion.setTiempoE(5);
+            t = accion.isVive();
+            accion.run();
+            t = accion.isVive();
+        }
         JOptionPane.showMessageDialog(this, "Guardado con exito");
         tf_crearCuenta_Nombre.setText("");
         tf_crearCuenta_contraseña.setText("");
@@ -615,7 +794,7 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("entra 3");
             for (int i = 0; i < mayor; i++) {
                 System.out.println("entra");
-                if (Lusu.size() > mayor) {
+                if (Lusu.size() > i) {
                     if (tf_login_Usuario.getText().equals(Lusu.get(i).getUsuario())) {
                         if (tf_login_Contraseña.getText().equals(Lusu.get(i).getContraseña())) {
                             new Principal().setVisible(true);
@@ -652,17 +831,19 @@ public class Principal extends javax.swing.JFrame {
         adAr.escribirArchivo();
         JOptionPane.showMessageDialog(this, "Guardado con exito");
         CrearCuentaArtista.setVisible(false);
+        artistas.add(new Solistas(Integer.parseInt(tf_CrearCuentaArtista_edad.getText()), tf_CrearCuentaArtista_Usuario.getText(), tf_CrearCuentaArtista_Contraseña.getText(), tf_CrearCuentaArtista_Nombre.getText(), tf_CrearCuentaArtista_Gmusical.getText()));
     }//GEN-LAST:event_b_CrearCuentaArtista_CCSolistaMouseClicked
 
     private void b_CrearCuentaArtista_CCBandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_CrearCuentaArtista_CCBandaMouseClicked
         // TODO add your handling code here:
-        Solistas solista = new Solistas(Integer.parseInt(tf_CrearCuentaArtista_edad.getText()), tf_CrearCuentaArtista_Usuario.getText(), tf_CrearCuentaArtista_Contraseña.getText(), tf_CrearCuentaArtista_Nombre.getText(), tf_CrearCuentaArtista_Gmusical.getText());
+        Banda banda = new Banda(Integer.parseInt(sp_CrearCuentaArtista_Integrantes.getValue().toString()), tf_CrearCuentaArtista_Usuario.getText(), tf_CrearCuentaArtista_Contraseña.getText(), tf_CrearCuentaArtista_Nombre.getText(), tf_CrearCuentaArtista_Gmusical.getText());
         AdminArtistas adAr = new AdminArtistas("./Artistas.jg");
         adAr.cargarArchivo();
-        adAr.setArtista(solista);
+        adAr.setArtista(banda);
         adAr.escribirArchivo();
         JOptionPane.showMessageDialog(this, "Guardado con exito");
         CrearCuentaArtista.setVisible(false);
+        artistas.add(banda);
     }//GEN-LAST:event_b_CrearCuentaArtista_CCBandaMouseClicked
 
     private void b_principalArtistas_CCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_principalArtistas_CCancionMouseClicked
@@ -677,6 +858,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         cEvento = new ArrayList();
         System.out.println(jl_principalArtistas_Canciones.getSelectedIndex());
+        cEvento.add(new Canciones());
         cEvento.add(canciones.get(jl_principalArtistas_Canciones.getSelectedIndex()));
         
         Eventos eve = new Eventos(dc_principalArtistas_Fecha.getDate(), tf_principalArtistas_Ciudad.getText(), tf_principalArtistas_Lugar.getText(), Integer.parseInt(tf_principalArtistas_Capacidad.getText()), cEvento);
@@ -688,11 +870,77 @@ public class Principal extends javax.swing.JFrame {
         cEvento.add(canciones.get(jl_principalArtistas_Canciones.getSelectedIndex()));
         Eventos eve = new Eventos(dc_principalArtistas_Fecha.getDate(), tf_principalArtistas_Ciudad.getText(), tf_principalArtistas_Lugar.getText(), Integer.parseInt(tf_principalArtistas_Capacidad.getText()), cEvento);
         JOptionPane.showMessageDialog(this, "Agregado COn exito"); 
-        eventos.add(eve);
+        eventos.add(new Eventos(dc_principalArtistas_Fecha.getDate(), tf_principalArtistas_Ciudad.getText(), tf_principalArtistas_Lugar.getText(), Integer.parseInt(tf_principalArtistas_Capacidad.getText()), cEvento));
         System.out.println(eve);
         
     }//GEN-LAST:event_b_principalArtistas_CEventoMouseClicked
 
+    private void b_prin_cargarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_prin_cargarMouseClicked
+        // TODO add your handling code here:
+        llenarArtistas();
+        DefaultListModel listamodelo = (DefaultListModel) jl_principalArtistas_Canciones.getModel();
+        for (int i = 0; i < canciones.size(); i++) {
+            listamodelo.addElement(canciones.get(i).toString());
+        }
+        
+    }//GEN-LAST:event_b_prin_cargarMouseClicked
+
+    private void b_concierto_simularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_concierto_simularMouseClicked
+        // TODO add your handling code here:
+        
+        Accion accion = new Accion();
+        for (int i = 0; i < eventos.get(jl_conciertos_eventos.getSelectedIndex()).getSetlist().size(); i++) {
+            accion.setAvanzar(true);
+            accion.setVive(true);
+            int timepoE = eventos.get(jl_conciertos_eventos.getSelectedIndex()).getSetlist().get(i).getTiemDura();
+            jProgressBar1.setMaximum(timepoE);
+            accion.setTiempoE(timepoE);
+            accion.setBarra(jProgressBar1);
+            accion.run();
+        }
+        
+    }//GEN-LAST:event_b_concierto_simularMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        Concierto.setVisible(true);
+        DefaultListModel listamo = (DefaultListModel) jl_conciertos_eventos.getModel();
+        for (int i = 0; i < eventos.size(); i++) {
+            listamo.addElement(eventos.get(i).toString());
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel lista2 = (DefaultListModel) jList1.getModel();
+        for (Usuarios u : usuarios) {
+            lista2.addElement(usuarios.toString());
+            
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    
+    public void llenarArtistas() {
+        DefaultTableModel t = (DefaultTableModel) tabla_prin_Artistas.getModel();
+        for (int i = t.getRowCount() - 1; i >= 0; i--) {
+            t.removeRow(i);
+        }
+        for (Artistas i : artistas) {
+            if (i instanceof Solistas ) {
+                Object[] usuarios = {i.getNombre(), i.getUsuario(), ((Artistas) i).getGmusical()};
+                t.addRow(usuarios);
+            }
+            if (i instanceof Banda) {
+                Object[] usuarios = {i.getNombre(), i.getUsuario(), ((Artistas) i).getGmusical()};
+                t.addRow(usuarios);
+            }
+            
+
+        }
+        tabla_prin_Artistas.setModel(t);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -739,19 +987,25 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame Admin;
     private javax.swing.JFrame ArtistasPrin;
+    private javax.swing.JFrame Concierto;
     private javax.swing.JFrame CrearCuenta;
     private javax.swing.JFrame CrearCuentaArtista;
     private javax.swing.JFrame Login;
     private javax.swing.JButton b_CrearCuentaArtista_CCBanda;
     private javax.swing.JButton b_CrearCuentaArtista_CCSolista;
+    private javax.swing.JButton b_concierto_simular;
     private javax.swing.JButton b_crearCuenta_CrearCuenta;
     private javax.swing.JButton b_login_Login;
     private javax.swing.JButton b_login_crearCuenta;
     private javax.swing.JButton b_login_crearCuentaArtista;
+    private javax.swing.JButton b_prin_cargar;
     private javax.swing.JButton b_principalArtistas_AgregarC;
     private javax.swing.JButton b_principalArtistas_CCancion;
     private javax.swing.JButton b_principalArtistas_CEvento;
     private com.toedter.calendar.JDateChooser dc_principalArtistas_Fecha;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -777,12 +1031,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JList<String> jl_conciertos_eventos;
+    private javax.swing.JList<String> jl_prin_Canciones;
     private javax.swing.JList<String> jl_principalArtistas_Canciones;
+    private javax.swing.JProgressBar progressCC;
     private javax.swing.JSpinner sp_CrearCuentaArtista_Integrantes;
+    private javax.swing.JTable tabla_prin_Artistas;
     private javax.swing.JTextField tf_CrearCuentaArtista_Contraseña;
     private javax.swing.JTextField tf_CrearCuentaArtista_Gmusical;
     private javax.swing.JTextField tf_CrearCuentaArtista_Nombre;
@@ -804,6 +1068,8 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Canciones> canciones = new ArrayList();
     ArrayList<Canciones> cEvento = new ArrayList();
     ArrayList<Eventos> eventos = new ArrayList();
+    ArrayList<Usuarios> usuarios = new ArrayList();
+    ArrayList<Artistas> artistas = new ArrayList();
     
 
 }
